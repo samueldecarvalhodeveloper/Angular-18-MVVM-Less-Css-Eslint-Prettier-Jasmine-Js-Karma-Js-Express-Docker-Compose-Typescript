@@ -1,0 +1,98 @@
+@import "../../assets/colors/neutrals_colors.less";
+@import "../../assets/colors/primary_colors.less";
+@import "../../assets/colors/secondary_colors.less";
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20rem;
+  min-height: 800rem;
+}
+
+.keyboard_one_slot_size_row {
+  display: flex;
+  gap: 10rem;
+  height: 100%;
+  max-height: 70rem;
+}
+
+.keyboard_two_slot_size_row {
+  display: grid;
+  grid-template-areas: "button-container button-container button-container equal-button";
+  gap: 10rem;
+  height: 200%;
+  max-height: 150rem;
+}
+
+.keyboard_two_slot_size_row_button_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: button-container;
+  flex-flow: column nowrap;
+  gap: 10rem;
+}
+
+.keyboard_two_slot_size_row_button_container > div {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 10rem;
+}
+
+.keyboard_two_slot_size_row_button_container > :nth-child(2) {
+  width: 100%;
+  height: 100%;
+}
+
+.keyboard_two_slot_size_row_zero_button_container > :nth-child(2) {
+  max-width: 70rem;
+}
+
+.light_blue_button {
+  background-color: @primary-400;
+  border: 1rem;
+  border-style: solid;
+  border-color: @primary-500;
+  color: @neutrals-900;
+}
+
+.light_blue_button:active {
+  background-color: @primary-600;
+}
+
+.yellow_button {
+  background-color: @secondary-500;
+  border: 1rem;
+  border-style: solid;
+  border-color: @secondary-600;
+  color: @neutrals-900;
+}
+
+.yellow_button:active {
+  background-color: @secondary-700;
+}
+
+.dark_blue_button {
+  background-color: @primary-900;
+  border: 1rem;
+  border-style: solid;
+  border-color: @neutrals-900;
+  color: @neutrals-100;
+}
+
+.dark_blue_button:active {
+  background-color: @neutrals-900;
+}
+
+@media screen and (max-width: 400px) {
+  .keyboard_two_slot_size_row_zero_button_container > :nth-child(2) {
+    max-width: initial;
+    width: 45%;
+  }
+}

@@ -1,0 +1,110 @@
+<main class="main">
+  <calculator value="{{calculatorValue}}">
+    <keyboard>
+      <div class="keyboard_one_slot_size_row">
+        <calculator-button
+          class="yellow_button"
+          character="C"
+          data-testid="clean_button"
+          (click)="handleCleanButtonClickEvent()" />
+        <calculator-button
+          class="dark_blue_button"
+          character="/"
+          data-testid="division_button"
+          (click)="handleDivisionButtonClickEvent()" />
+        <calculator-button
+          class="dark_blue_button"
+          character="*"
+          data-testid="multiplication_button"
+          (click)="handleMultiplicationButtonClickEvent()" />
+        <calculator-button
+          class="yellow_button"
+          character="<"
+          data-testid="backspace_button"
+          (click)="handleBackspaceButtonClickEvent()" />
+      </div>
+      <div class="keyboard_one_slot_size_row">
+        <calculator-button
+          class="light_blue_button"
+          character="7"
+          data-testid="seven_button"
+          (click)="handleSevenButtonClickEvent()" />
+        <calculator-button
+          class="light_blue_button"
+          character="8"
+          data-testid="eight_button"
+          (click)="handleEightButtonClickEvent()" />
+        <calculator-button
+          class="light_blue_button"
+          character="9"
+          data-testid="nine_button"
+          (click)="handleNineButtonClickEvent()" />
+        <calculator-button
+          class="dark_blue_button"
+          character="-"
+          data-testid="subtraction_button"
+          (click)="handleSubtractionButtonClickEvent()" />
+      </div>
+      <div class="keyboard_one_slot_size_row">
+        <calculator-button
+          class="light_blue_button"
+          character="4"
+          data-testid="four_button"
+          (click)="handleFourButtonClickEvent()" />
+        <calculator-button
+          class="light_blue_button"
+          character="5"
+          data-testid="five_button"
+          (click)="handleFiveButtonClickEvent()" />
+        <calculator-button
+          class="light_blue_button"
+          character="6"
+          data-testid="six_button"
+          (click)="handleSixButtonClickEvent()" />
+        <calculator-button
+          class="dark_blue_button"
+          character="+"
+          data-testid="addition_button"
+          (click)="handleAdditionButtonClickEvent()" />
+      </div>
+      <div class="keyboard_two_slot_size_row">
+        <div class="keyboard_two_slot_size_row_button_container">
+          <div>
+            <calculator-button
+              class="light_blue_button"
+              character="1"
+              data-testid="one_button"
+              (click)="handleOneButtonClickEvent()" />
+            <calculator-button
+              class="light_blue_button"
+              character="2"
+              data-testid="two_button"
+              (click)="handleTwoButtonClickEvent()" />
+            <calculator-button
+              class="light_blue_button"
+              character="3"
+              data-testid="three_button"
+              (click)="handleThreeButtonClickEvent()" />
+          </div>
+          <div class="keyboard_two_slot_size_row_zero_button_container">
+            <calculator-button
+              class="light_blue_button"
+              character="0"
+              data-testid="zero_button"
+              (click)="handleZeroButtonClickEvent()" />
+            <calculator-button
+              class="dark_blue_button"
+              character="."
+              data-testid="point_button"
+              (click)="handlePointButtonClickEvent()" />
+          </div>
+        </div>
+        <calculator-button
+          class="yellow_button"
+          character="="
+          data-testid="evaluate_button"
+          (click)="handleEvaluateButtonClickEvent()" />
+      </div>
+    </keyboard>
+  </calculator>
+</main>

@@ -1,0 +1,20 @@
+#syntax=docker/dockerfile:experimental
+
+FROM node
+
+WORKDIR /src/app/
+
+COPY ./package.json /src/app/package.json
+COPY ./server.ts /src/app/
+COPY ./tsconfig.app.json /src/app/
+COPY ./tsconfig.json /src/app/
+COPY ./tsconfig.spec.json /src/app/
+COPY ./angular.json /src/app/angular.json
+COPY ./src/ /src/app/src/
+COPY ./public/ /src/app/public/
+
+RUN npm i
+
+CMD npm run test
+
+EXPOSE 9876
