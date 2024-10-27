@@ -37,7 +37,7 @@ import {
 } from "../../app/constants/user_interface_constants";
 import CalculatorCharacters from "../../app/domains/calculator/calculator_characters";
 
-describe('Test Screen "Calculator" Behavior', () => {
+describe('Test Component "Calculator" Behavior', () => {
   let fixture: ComponentFixture<CalculatorScreen>;
   let debugComponent: DebugElement;
 
