@@ -27,6 +27,7 @@ import {
   MULTIPLICATION_BUTTON_TEST_ID,
   NINE_BUTTON_TEST_ID,
   ONE_BUTTON_TEST_ID,
+  POINT_BUTTON_TEST_ID,
   SEVEN_BUTTON_TEST_ID,
   SIX_BUTTON_TEST_ID,
   SUBTRACTION_BUTTON_TEST_ID,
@@ -151,6 +152,9 @@ describe('Test Screen "Calculator" Behavior', () => {
     debugComponent
       .query(By.css(DATA_TEST_ID_CSS_SELECTOR(DIVISION_BUTTON_TEST_ID)))
       .triggerEventHandler(CLICK_EVENT);
+    debugComponent
+      .query(By.css(DATA_TEST_ID_CSS_SELECTOR(POINT_BUTTON_TEST_ID)))
+      .triggerEventHandler(CLICK_EVENT);
 
     fixture.detectChanges();
 
@@ -168,7 +172,8 @@ describe('Test Screen "Calculator" Behavior', () => {
         CalculatorCharacters.ADDITION +
         CalculatorCharacters.SUBTRACTION +
         CalculatorCharacters.MULTIPLICATION +
-        CalculatorCharacters.DIVISION,
+        CalculatorCharacters.DIVISION +
+        CalculatorCharacters.POINT,
     );
   });
 
@@ -215,7 +220,7 @@ describe('Test Screen "Calculator" Behavior', () => {
     expect(calculatorValueElement.innerText).toEqual("");
   });
 
-  it("Test If Clean Backspace Backspaces Calculation Expression On Calculator And Updates Calculator Value On User Interface", () => {
+  it("Test If Backspace Button Backspaces Calculation Expression On Calculator And Updates Calculator Value On User Interface", () => {
     const calculatorValueElement = debugComponent.query(
       By.css(DATA_TEST_ID_CSS_SELECTOR(CALCULATOR_VALUE_TEST_ID)),
     ).nativeElement as HTMLElement;

@@ -5,8 +5,6 @@ services:
       dockerfile: ./dockerfile.testing
       tags:
         - testing
-    volumes:
-      - ./:/src/app/user_interface_service/
     ports:
       - 3002:9876
 
@@ -16,8 +14,6 @@ services:
       dockerfile: ./dockerfile.development
       tags:
         - development
-    volumes:
-      - ./:/src/app/user_interface_service/
     ports:
       - 3001:4200
 

@@ -2,16 +2,38 @@ import {
   LAST_CALCULATION_VALUE,
   LAST_SESSION_CALCULATION_KEY,
 } from "../../app/constants/domains/calculator_constants";
+import KeyValueDatabase from "../../app/domains/key_value_store/infrastructure/anticorruption_layer/key_value_database";
+import StoreDataEntity from "../../app/domains/key_value_store/infrastructure/entities/store_data_entity";
+import { StoreValue } from "../../app/domains/key_value_store/infrastructure/environment/typescript/types";
+import KeyValueDatabaseActiveRecord from "../../app/domains/key_value_store/key_value_database_active_record";
 import KeyValueStore from "../../app/domains/key_value_store/key_value_store";
+import StoreDataEntityFactory from "../../app/domains/key_value_store/store_data_entity_factory";
 
 describe('Test Component "KeyValueStore" Behavior', () => {
-  it("Test If Component Handles Data Input And Output Scenario", () => {
+  it("Test Storing Item In Key Value Database", () => {
+    const storeDataToBeStored: StoreDataEntity =
+      StoreDataEntityFactory.getInstance(LAST_CALCULATION_VALUE);
+    const stringifiedDataToBeStored: string =
+      JSON.stringify(storeDataToBeStored);
+
     KeyValueStore.setItem(LAST_SESSION_CALCULATION_KEY, LAST_CALCULATION_VALUE);
 
-    const storedValue: string = KeyValueStore.getItem(
-      LAST_SESSION_CALCULATION_KEY,
-    ) as string;
+    const stringifiedDataFromDatabase: string =
+      KeyValueDatabase.getSelectedKeyData(LAST_SESSION_CALCULATION_KEY);
 
-    expect(storedValue).toEqual(LAST_CALCULATION_VALUE);
+    expect(stringifiedDataFromDatabase).toEqual(stringifiedDataToBeStored);
+  });
+
+  it("Test Getting Item Data From Key Value Database", () => {
+    KeyValueDatabaseActiveRecord.setItem(
+      LAST_SESSION_CALCULATION_KEY,
+      LAST_CALCULATION_VALUE,
+    );
+
+    const dataFromKeyValueDatabase: StoreValue = KeyValueStore.getItem(
+      LAST_SESSION_CALCULATION_KEY,
+    );
+
+    expect(dataFromKeyValueDatabase).toEqual(LAST_CALCULATION_VALUE);
   });
 });
