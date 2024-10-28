@@ -4,6 +4,8 @@ FROM node
 
 WORKDIR /src/app/
 
+ENV PORT=3000
+
 COPY ./package.json /src/app/package.json
 COPY ./server.ts /src/app/
 COPY ./tsconfig.app.json /src/app/
@@ -19,4 +21,4 @@ RUN npm run build
 
 CMD npm run serve:ssr:web-calculator
 
-EXPOSE 4000
+EXPOSE $PORT
